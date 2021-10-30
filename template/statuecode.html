@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>
+        状态码http response status code
+    </title>
+    <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>正常状态</td>
+                <td>
+                    当前网页是一个200状态
+                </td>
+            </tr>
+            <tr>
+                <td>cache控制</td>
+                <td>
+                    <input type='button' value='Cache-Control age' onclick='test_cache("cache_age")' />
+                </td>
+                <td>
+                    <input type='button' value='Cache-Control ETag' onclick='test_cache("cache_etag")' />
+                </td>
+            </tr>
+        </table>
+        <iframe class='cache' hidden>
+
+        </iframe>
+    </div>
+    <script type="text/javascript">
+        function test_cache(code) {
+            // debugger;
+            // ifram中的cache好像不管用，还是重新向服务端请求了
+            // document.querySelector("iframe.cache").src = code + ".html";
+            window.open(code + ".html")
+        }
+    </script>
+</body>
+
+</html>

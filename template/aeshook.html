@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>
+        加密
+    </title>
+    <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/core.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/enc-base64.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/md5.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/evpkdf.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/cipher-core.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/aes.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/pad-pkcs7.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/mode-ecb.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/enc-utf8.js" type="text/javascript"></script>
+    <script src="/static/crypto-js/4.1.1/enc-hex.js" type="text/javascript"></script>
+    <script src="/static/aes.js" type="text/javascript"></script>
+    <script src="/static/js-encrypt-hook.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.age }}</td>
+                    <td><input type="button" value="查看密码" onclick="get_password('{{user.id}}')"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        function get_password(user_id) {
+            $.ajax({
+                url: "aes_hook.do",
+                type: "GET",
+                data: {
+                    user_id: user_id
+                },
+                dataType: "json",
+                success: (response) => {
+                    console.log(response);
+                    alert(response.data.password);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
