@@ -7,8 +7,13 @@
 <body>
     <div>
         <form action='img_download.do' method='post' target='_blank'>
-            <input type='hidden' name='id' /> <br /><br />
+            <input type='hidden' name='filename' value='favicon.ico' /> <br /><br />
             <input type='submit' value='下载图片' /> <br />
+        </form>
+
+        <form action='img_upload.do' method='post' enctype='multipart/form-data'>
+            <input type='file' name='filename' />
+            <input type='submit' value='上传图片' />
         </form>
     </div>
 </body>
