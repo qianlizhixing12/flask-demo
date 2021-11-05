@@ -2,12 +2,7 @@
 *.pyc
 *.pyo
 *.egg-info
-# idea
-.idea
-# vscode
-# \.vscode
-# venv
-\.venv
+
 # tox
 .tox
 # log
