@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, jsonify, request, make_response, render_template, send_from_directory, url_for, redirect
+from flask import Blueprint, request, make_response, render_template, send_from_directory, url_for, redirect
 from werkzeug.utils import secure_filename
 
 blue_up_down = Blueprint("blue_up_down", __name__)
