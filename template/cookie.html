@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>
+        cookie
+    </title>
+    <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="address"></div>
+    <br>
+    <div id="cookie"></div>
+    <br>
+    <script type="text/javascript">
+        document.getElementById("address").textContent = "address: " + window.location.href
+        document.getElementById("cookie").textContent = "document.cookie:" + document.cookie;
+    </script>
+</body>
+
+</html>
