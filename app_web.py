@@ -16,8 +16,8 @@ if __name__ == "__main__":
     @app.route("/")
     def home():
         response = make_response(render_template("home.html"))
-        response.set_cookie("tgc", str(uuid4()), path='', httponly=True)
-        response.set_cookie("session", str(uuid4()), path='', httponly=False)
+        response.set_cookie("tgc", str(uuid4()), path='/js_cookie/sub1', httponly=True)
+        response.set_cookie("session", str(uuid4()), path='/js_cookie/sub2', httponly=False)
         return response
 
     app.register_blueprint(blue_js_encrypt, url_prefix="/js_encrypt")

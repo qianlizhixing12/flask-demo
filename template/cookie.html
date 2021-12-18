@@ -8,13 +8,16 @@
 </head>
 
 <body>
-    <div id="address"></div>
-    <br>
-    <div id="cookie"></div>
-    <br>
     <script type="text/javascript">
-        document.getElementById("address").textContent = "address: " + window.location.href
-        document.getElementById("cookie").textContent = "document.cookie:" + document.cookie;
+        $.ajax({
+            url: "/js_cookie/sub2",
+            type: "POST",
+            // dataType: "json",
+            success: (response) => {
+                console.log(response);
+                alert(response.data.password);
+            }
+        });
     </script>
 </body>
 
